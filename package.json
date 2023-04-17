@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@sap/ux-specification": "^1.108.2",
-    "sqlite3": "^5"
+    "sqlite3": "^5.1.6"
   },
   "scripts": {
     "start": "cds-serve",
@@ -22,8 +22,13 @@
     "app/books"
   ],
   "cds": {
-    "protocols": {
-      "graphql": { "path": "/graphql", "impl": "@cap-js/graphql" }
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "database": "my.db"
+        }
+      }
     }
   }
 }
