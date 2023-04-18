@@ -17,4 +17,8 @@ module.exports = async function (){
   this.after ('READ','Books', each => {
     if (each.stock > 111)  each.title += ` -- 11% discount!`
   })
+
+  //define function import
+  this.on('hello' , req => `Hello ${req.data.to} !!!`)
+  
 }

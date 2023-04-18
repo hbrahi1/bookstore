@@ -1,6 +1,6 @@
 using {sap.capire.bookstore as my} from '../db/schema';
 
-service CatalogService @(path: '/browse') {
+service CatalogService @(path: '/catalog') {
 
     @readonly
     entity Books as
@@ -14,5 +14,7 @@ service CatalogService @(path: '/browse') {
         };
 
     @requires: 'authenticated-user'
-    action submitOrder(book : Books:ID, quantity : Integer);
+    action   submitOrder(book : Books:ID, quantity : Integer);
+
+    function hello(to : String) returns String;
 }
