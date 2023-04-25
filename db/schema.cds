@@ -4,6 +4,8 @@ using {
     sap
 } from '@sap/cds/common';
 
+using {API_BUSINESS_PARTNER as bupa} from '../srv/external/API_BUSINESS_PARTNER';
+
 namespace sap.capire.bookstore;
 
 
@@ -33,4 +35,16 @@ entity Genres : sap.common.CodeList {
         parent   : Association to Genres;
         children : Composition of many Genres
                        on children.parent = $self;
+}
+
+entity Episodes {
+    key ID          : String @title: 'Epidode ID';
+        title       : String @title: 'Episode Title';
+        participant : Association to many bupa.A_BusinessPartner;
+}
+
+entity Participants as projection on bupa.A_BusinessPartner {
+    key BusinessPartner          as ID,
+        BusinessPartnerFullName  as fullName,
+        BusinessPartnerIsBlocked as isBlocked
 }
