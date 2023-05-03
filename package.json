@@ -16,11 +16,22 @@
   },
   "devDependencies": {
     "@sap/ux-specification": "^1.108.2",
+    "axios": "^1.4.0",
+    "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.3.0",
+    "chai-subset": "^1.6.0",
+    "jest": "^29.5.0",
+    "mocha": "^10.2.0",
     "sqlite3": "^5.1.6"
   },
   "scripts": {
     "start": "cds-serve",
-    "watch-books": "cds watch --open books/webapp/index.html?sap-ui-xx-viewCache=false"
+    "mocha": "mocha tests/mocha/test.js --timeout 15000 --exit",
+    "jest": "npx jest --silent",
+    "test": "npm run jest -- --silent",
+    "watch-books": "cds watch --open books/webapp/index.html?sap-ui-xx-viewCache=false",
+    "debug": "node --inspect-brk node_modules/.bin/cds.cmd watch"
   },
   "sapux": [
     "app/books"
